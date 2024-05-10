@@ -398,22 +398,22 @@
     <!-- LSP consoles -->
     <extensions defaultExtensionNs="com.intellij">
 
-        <projectConfigurable
-                groupId="language"
-                id="LanguageServers"
-                bundle="messages.LanguageServerBundle"
-                nonDefaultProject="true"
-                key="language.servers"
-                instance="com.redhat.devtools.lsp4ij.settings.LanguageServerListConfigurable"/>
-        <projectService
-                id="com.redhat.devtools.lsp4ij.settings.UserDefinedLanguageServerSettings"
-                serviceImplementation="com.redhat.devtools.lsp4ij.settings.UserDefinedLanguageServerSettings"/>
-        <toolWindow
-                id="Language Servers"
-                anchor="bottom"
-                factoryClass="com.redhat.devtools.lsp4ij.console.LSPConsoleToolWindowFactory"
-                canCloseContents="false"
-                icon="AllIcons.Webreferences.Server"/>
+<!--        <projectConfigurable-->
+<!--                groupId="language"-->
+<!--                id="LanguageServers"-->
+<!--                bundle="messages.LanguageServerBundle"-->
+<!--                nonDefaultProject="true"-->
+<!--                key="language.servers"-->
+<!--                instance="com.redhat.devtools.lsp4ij.settings.LanguageServerListConfigurable"/>-->
+<!--        <projectService-->
+<!--                id="com.redhat.devtools.lsp4ij.settings.UserDefinedLanguageServerSettings"-->
+<!--                serviceImplementation="com.redhat.devtools.lsp4ij.settings.UserDefinedLanguageServerSettings"/>-->
+<!--        <toolWindow-->
+<!--                id="Language Servers"-->
+<!--                anchor="bottom"-->
+<!--                factoryClass="com.redhat.devtools.lsp4ij.console.LSPConsoleToolWindowFactory"-->
+<!--                canCloseContents="false"-->
+<!--                icon="AllIcons.Webreferences.Server"/>-->
 
     </extensions>
 
