@@ -117,11 +117,11 @@
         </extensionPoint>
     </extensionPoints>
 
-    <!-- Language Server support -->
-    <extensions defaultExtensionNs="com.intellij">
+<!--     <!-- Language Server support -->
+<!--     <extensions defaultExtensionNs="com.intellij"> -->
 
         <!-- LSP application services -->
-        <applicationService
+<!--         <applicationService
                 serviceImplementation="com.redhat.devtools.lsp4ij.LanguageServersRegistry"/>
         <applicationService
                 id="com.redhat.devtools.lsp4ij.launching.UserDefinedLanguageServerSettings"
@@ -129,14 +129,14 @@
         <applicationService
                 id="com.redhat.devtools.lsp4ij.launching.templates.LanguageServerTemplateManager"
                 serviceImplementation="com.redhat.devtools.lsp4ij.launching.templates.LanguageServerTemplateManager"/>
-
+ --> -->
         <!-- LSP project services -->
-        <projectService
+<!--         <projectService
                 serviceImplementation="com.redhat.devtools.lsp4ij.LanguageServiceAccessor"/>
         <projectService
                 serviceImplementation="com.redhat.devtools.lsp4ij.lifecycle.LanguageServerLifecycleManager"/>
         <projectService
-                serviceImplementation="com.redhat.devtools.lsp4ij.usages.LSPUsagesManager"/>
+                serviceImplementation="com.redhat.devtools.lsp4ij.usages.LSPUsagesManager"/> -->
 
         <!-- LSP textDocument/publishDiagnostics notification support -->
         <externalAnnotator
