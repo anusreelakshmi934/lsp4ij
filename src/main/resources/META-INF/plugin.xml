@@ -146,11 +146,11 @@
                 implementationClass="com.redhat.devtools.lsp4ij.features.diagnostics.LSPDiagnosticAnnotator"/>
 
         <!-- LSP textDocument/completion request support -->
-        <completion.contributor
+<!--         <completion.contributor
                 id="LSPCompletionContributor"
                 language="any"
                 implementationClass="com.redhat.devtools.lsp4ij.features.completion.LSPCompletionContributor"
-                order="first"/>
+                order="first"/> -->
 
         <!-- LSP textDocument/definition request support -->
         <gotoDeclarationHandler
