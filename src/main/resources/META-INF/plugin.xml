@@ -111,11 +111,11 @@
     <extensionPoints>
 
         <!-- Language server extension point -->
-        <extensionPoint
+<!--         <extensionPoint
                 name="server"
                 beanClass="com.redhat.devtools.lsp4ij.server.definition.extension.ServerExtensionPointBean">
             <with attribute="factoryClass" implements="com.redhat.devtools.lsp4ij.LanguageServerFactory"/>
-        </extensionPoint>
+        </extensionPoint> -->
 
         <!-- Language server mappings extension point -->
         <extensionPoint
