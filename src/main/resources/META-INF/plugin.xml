@@ -193,9 +193,9 @@
                 implementation="com.redhat.devtools.lsp4ij.features.documentLink.LSPDocumentLinkGotoDeclarationHandler"/>
 
         <!-- LSP textDocument/documentHighlight request support -->
-        <highlightUsagesHandlerFactory
+<!--         <highlightUsagesHandlerFactory
                 id="LSPHighlightUsagesHandlerFactory"
-                implementation="com.redhat.devtools.lsp4ij.features.highlight.LSPHighlightUsagesHandlerFactory"/>
+                implementation="com.redhat.devtools.lsp4ij.features.highlight.LSPHighlightUsagesHandlerFactory"/> -->
 
         <!-- LSP textDocument/codeLens request support -->
         <codeInsight.codeVisionProviderFactory
@@ -212,13 +212,13 @@
                 implementation="com.redhat.devtools.lsp4ij.features.LSPInlayHintProvidersFactory"/>
 
         <!-- LSP textDocument/hover request support -->
-        <platform.backend.documentation.targetProvider
+<!--         <platform.backend.documentation.targetProvider
                 id="LSPDocumentationTargetProvider"
                 implementation="com.redhat.devtools.lsp4ij.features.documentation.LSPDocumentationTargetProvider"
-                order="first"/>
-        <platform.backend.documentation.linkHandler
+                order="first"/> -->
+<!--         <platform.backend.documentation.linkHandler
                 id="LSPDocumentationLinkHandler"
-                implementation="com.redhat.devtools.lsp4ij.features.documentation.LSPDocumentationLinkHandler" />
+                implementation="com.redhat.devtools.lsp4ij.features.documentation.LSPDocumentationLinkHandler" /> -->
 
         <!-- LSP textDocument/folding -->
         <lang.foldingBuilder id="LSPFoldingBuilderForText"
