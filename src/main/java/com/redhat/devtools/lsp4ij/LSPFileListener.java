@@ -71,12 +71,15 @@ class LSPFileListener implements FileEditorManagerListener, VirtualFileListener 
         if (event.getPropertyName().equals(VirtualFile.PROP_NAME) && event.getOldValue() instanceof String) {
             // A file (Test1.java) has been renamed (to Test2.java) by using Refactor / Rename from IJ
 
-            // 1. Send a textDocument/didClose for the old file name (Test1.java) followed
-            //    by a textDocument/didOpen for the new file name (Test2.java)
-            VirtualFile newFile = event.getFile();
-            URI oldFileUri = didRename(newFile.getParent(), (String) event.getOldValue(), newFile);
+            // See "Renaming a document" specification
+            // https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#textDocument_didRename
+
+            // 1. Send a textDocument/didClose for the renamed file (Test1.java)
+            // According to the spec: "Document renames should be signaled to a server sending a document close notification with the document’s old name"
+            URI oldFileUri = didClose(event.getFile().getParent(), (String) event.getOldValue());
 
             // 2. Send a workspace/didChangeWatchedFiles
+            VirtualFile newFile = event.getFile();
             moveFile(oldFileUri, newFile);
         }
     }
@@ -138,17 +141,22 @@ class LSPFileListener implements FileEditorManagerListener, VirtualFileListener 
     public void fileMoved(@NotNull VirtualFileMoveEvent event) {
         // A file (foo.Test1.java) has been moved (to bar1.Test1.java)
 
-        // 1. Send a textDocument/didClose for the old file location (foo.Test1.java) followed
-        //    by a textDocument/didOpen for the new file location (bar1.Test1.java)
-        VirtualFile movedFile = event.getFile();
-        URI oldFileUri = didRename(event.getOldParent(), movedFile.getName(), movedFile);
-
-        // 2. Send a workspace/didChangeWatchedFiles
-        moveFile(oldFileUri, movedFile);
+        // 1. Send a textDocument/didClose for the moved file (foo.Test1.java)
+        URI oldFileUri = didClose(event.getOldParent(), event.getFileName());
+        moveFile(oldFileUri, event.getFile());
     }
 
     private FileEvent fe(URI uri, FileChangeType type) {
         return new FileEvent(uri.toASCIIString(), type);
+    }
+
+    private @NotNull URI didClose(VirtualFile virtualParentFile, String fileName) {
+        File parent = VfsUtilCore.virtualToIoFile(virtualParentFile);
+        URI uri = LSPIJUtils.toUri(new File(parent, fileName));
+        if (languageServerWrapper.isConnectedTo(uri)) {
+            languageServerWrapper.disconnect(uri, false);
+        }
+        return uri;
     }
 
     /**
